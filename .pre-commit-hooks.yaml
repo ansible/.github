@@ -1,0 +1,14 @@
+---
+# For use with pre-commit.
+# See usage instructions at http://pre-commit.com
+
+- id: onecommit
+  name: onecommit
+  description: >
+    Ensures that the proposed change has only one commit on GitHub or GitLab.
+  entry: python3 -m ansiblelint -v --force-color
+  language: python
+  # do not pass files to ansible-lint, see:
+  # https://github.com/ansible/ansible-lint/issues/611
+  pass_filenames: false
+  always_run: true
